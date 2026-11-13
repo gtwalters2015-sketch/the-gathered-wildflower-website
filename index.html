@@ -4,57 +4,46 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090608">
-  <meta name="description" content="The Gathered Wildflower — personalized keepsakes, made with care for the moments worth keeping.">
+  <meta name="description" content="The Gathered Wildflower — expressive apparel designs, handmade keychains, and completely custom keepsakes.">
   <title>The Gathered Wildflower | Keepsakes, Made Personal</title>
-  <link rel="stylesheet" href="styles.css?v=flyer-redesign-1">
+  <link rel="stylesheet" href="styles.css?v=catalog-1">
 </head>
 <body>
   <div class="page"><div class="frame">
     <header>
-      <a class="wordmark" href="#top">The Gathered Wildflower</a>
-      <div class="header-tools">
-        <nav aria-label="Main navigation"><a href="#top">Welcome</a><a href="meet-the-maker.html">Meet the Maker</a><a href="custom-orders.html">Custom Orders</a></nav>
-        <details class="shop-menu" id="shop-menu">
-          <summary>Shop</summary>
-          <div class="shop-dropdown">
-            <div class="shop-groups" id="shop-groups">
-              <section class="shop-group">
-                <h2>Apparel</h2>
-                <ul><li class="shop-option">T-shirts</li><li class="shop-option">Hoodies</li><li class="shop-option">Sweatshirts</li><li class="shop-option">Long-sleeve T-shirts</li></ul>
-              </section>
-              <section class="shop-group">
-                <h2>Invitations</h2>
-                <ul><li class="shop-option">Printed</li><li class="shop-option">Digital</li></ul>
-              </section>
-              <section class="shop-group">
-                <h2>Bags</h2>
-                <ul><li class="shop-option">Backpacks</li><li class="shop-option">Totes</li></ul>
-              </section>
-              <section class="shop-group">
-                <h2>Stickers</h2>
-                <ul><li class="shop-option">Vinyl</li><li class="shop-option">Decals</li><li class="shop-option">Personal Stickers</li></ul>
-              </section>
-            </div>
-            <p class="no-results" id="no-results" aria-live="polite" hidden>No matching categories yet.</p>
-          </div>
-        </details>
-        <label class="search-box"><span aria-hidden="true">⌕</span><input id="shop-search" type="search" placeholder="Search categories" aria-label="Search shop categories"></label>
-      </div>
+      <a class="wordmark" href="index.html">The Gathered Wildflower</a>
+      <nav aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Welcome</a>
+        <a href="available-designs.html">Available Designs</a>
+        <a href="holiday.html">Holiday</a>
+        <a href="keychains.html">Keychains</a>
+        <a href="meet-the-maker.html">Meet the Maker</a>
+        <a href="custom-orders.html">Custom Orders</a>
+      </nav>
     </header>
     <main id="top">
       <section class="hero" aria-labelledby="welcome-title">
         <img class="logo" src="flyer-wordmark.png" alt="The Gathered Wildflower — Keepsakes, Made Personal">
-        <h1 id="welcome-title" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">The Gathered Wildflower</h1>
+        <h1 id="welcome-title" class="sr-only">The Gathered Wildflower</h1>
         <div class="hero-copy">
-          <p class="eyebrow">A little keepsake studio</p>
-          <p class="intro">Thoughtful, personalized keepsakes are taking shape here—made to celebrate the people, stories, and moments you want to hold close.</p>
+          <p class="eyebrow">Expressive designs · handmade details · completely custom</p>
+          <p class="intro">Choose a design, make it yours, or tell me the one-of-a-kind idea you have in mind. The Gathered Wildflower creates apparel, keychains, keepsakes, and custom pieces with plenty of personality.</p>
           <div class="divider" aria-hidden="true">✦</div>
-          <div class="notice">Our little shop is coming soon</div>
+          <div class="notice">Now taking orders!</div>
+          <div class="home-actions">
+            <a class="primary-action" href="available-designs.html">Shop Available Designs</a>
+            <a class="secondary-action" href="custom-orders.html">Request Something Custom</a>
+          </div>
         </div>
+      </section>
+      <section class="home-choices" aria-label="Shop The Gathered Wildflower">
+        <a class="choice-card" href="available-designs.html"><span>Designs for every mood</span><strong>Available Designs</strong><small>Choose apparel, style, and color</small></a>
+        <a class="choice-card holiday-choice" href="holiday.html"><span>Merry, cozy, and a little chaotic</span><strong>Holiday Designs</strong><small>Seasonal favorites in one place</small></a>
+        <a class="choice-card keychain-choice" href="keychains.html"><span>Finished and ready for local pickup</span><strong>Keychains</strong><small>$4 each · bundle pricing available</small></a>
       </section>
     </main>
     <footer>THE GATHERED WILDFLOWER &nbsp;·&nbsp; KEEPSAKES, MADE PERSONAL</footer>
   </div></div>
-  <script src="site.js" defer></script>
+  <script src="site.js?v=catalog-1" defer></script>
 </body>
 </html>
