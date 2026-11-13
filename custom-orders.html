@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090608">
+  <meta name="description" content="Request a completely custom handmade order from The Gathered Wildflower.">
+  <title>Custom Orders | The Gathered Wildflower</title>
+  <link rel="stylesheet" href="styles.css?v=custom-orders-1">
+</head>
+<body>
+  <div class="page"><div class="frame">
+    <header>
+      <a class="wordmark" href="index.html#top">The Gathered Wildflower</a>
+      <div class="header-tools">
+        <nav aria-label="Main navigation">
+          <a href="index.html#top">Welcome</a>
+          <a href="meet-the-maker.html">Meet the Maker</a>
+          <a href="custom-orders.html" aria-current="page">Custom Orders</a>
+        </nav>
+        <details class="shop-menu" id="shop-menu">
+          <summary>Shop</summary>
+          <div class="shop-dropdown">
+            <div class="shop-groups" id="shop-groups">
+              <section class="shop-group"><h2>Apparel</h2><ul><li class="shop-option">T-shirts</li><li class="shop-option">Hoodies</li><li class="shop-option">Sweatshirts</li><li class="shop-option">Hats</li><li class="shop-option">Baby onesies</li></ul></section>
+              <section class="shop-group"><h2>Accessories</h2><ul><li class="shop-option">Keychains</li><li class="shop-option">Beaded hats</li><li class="shop-option">Rearview mirror hangers</li><li class="shop-option">Tote bags</li></ul></section>
+              <section class="shop-group"><h2>Home &amp; Gifts</h2><ul><li class="shop-option">Cups</li><li class="shop-option">Coffee mugs</li><li class="shop-option">Blankets</li><li class="shop-option">Wood-burned pieces</li></ul></section>
+              <section class="shop-group"><h2>Beaded Work</h2><ul><li class="shop-option">Traditional-inspired beadwork</li><li class="shop-option">Silicone beads</li><li class="shop-option">Plastic beads</li><li class="shop-option">Custom bead combinations</li></ul></section>
+            </div>
+            <p class="no-results" id="no-results" aria-live="polite" hidden>No matching categories yet.</p>
+          </div>
+        </details>
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="shop-search" type="search" placeholder="Search categories" aria-label="Search shop categories"></label>
+      </div>
+    </header>
+    <main>
+      <div class="order-page">
+        <section class="order-intro" aria-labelledby="custom-order-title">
+          <p class="eyebrow">Dream it up · Let’s make it personal</p>
+          <h1 id="custom-order-title">Custom Means Custom</h1>
+          <p class="intro">Have something special in mind? Ask away. If it can be handmade, personalized, beaded, printed, burned, decorated, or turned into a meaningful keepsake, I would love to hear your idea.</p>
+          <div class="product-cloud" aria-label="Examples of custom products">
+            <span>Beaded work</span><span>Keychains</span><span>Silicone &amp; plastic beads</span><span>T-shirts</span><span>Hoodies</span><span>Hats</span><span>Beaded hats</span><span>Burned-design hats</span><span>Rearview mirror hangers</span><span>Baby onesies</span><span>Blankets</span><span>Cups</span><span>Coffee mugs</span><span>Wood-burned pieces</span><span>Tote bags</span><span>And more</span>
+          </div>
+          <p class="order-note"><strong>Please be as detailed as possible.</strong> Tell me what you want made, who it is for, your preferred colors, wording, size, style, materials, theme, and any deadline you have in mind. If you have inspiration or example photos, please attach them below. The more detail you share, the better I can understand your vision.</p>
+        </section>
+
+        <section class="order-form-panel" aria-labelledby="request-heading">
+          <div class="form-heading">
+            <h2 id="request-heading">Tell Me What You’re Dreaming Up</h2>
+            <p>Complete the form below and I’ll respond directly by email to discuss your idea, availability, timing, and pricing.</p>
+          </div>
+          <form class="order-form" id="custom-order-form" action="https://formsubmit.co/gtcoleman92@gmail.com" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" value="New custom order request — The Gathered Wildflower">
+            <input type="hidden" name="_next" value="https://thegatheredwildflower.com/order-thank-you.html">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_url" value="https://thegatheredwildflower.com/custom-orders.html">
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
+
+            <div class="form-field">
+              <label for="first-name">First name <span class="required" aria-hidden="true">*</span></label>
+              <input id="first-name" name="First name" type="text" autocomplete="given-name" required>
+            </div>
+            <div class="form-field">
+              <label for="last-name">Last name <span class="required" aria-hidden="true">*</span></label>
+              <input id="last-name" name="Last name" type="text" autocomplete="family-name" required>
+            </div>
+            <div class="form-field">
+              <label for="email">Email address <span class="required" aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone number <span class="required" aria-hidden="true">*</span></label>
+              <input id="phone" name="Phone number" type="tel" autocomplete="tel" inputmode="tel" placeholder="(555) 555-5555" required>
+            </div>
+            <div class="form-field full">
+              <label for="request-details">What would you like me to make? <span class="required" aria-hidden="true">*</span></label>
+              <textarea id="request-details" name="Custom order details" placeholder="Describe your idea in as much detail as you’d like—item, colors, size, materials, wording, theme, quantity, deadline, and anything else that will help me understand your vision." required></textarea>
+              <p class="form-help">There is no character limit. Include every detail that matters to you.</p>
+            </div>
+            <div class="form-field full upload-box">
+              <label for="order-images">Upload inspiration or example images</label>
+              <input id="order-images" name="Reference images" type="file" accept="image/*" multiple>
+              <p class="form-help">Optional. You may select multiple images. Keep the combined file size under 10 MB.</p>
+              <p class="selected-files" id="selected-files" aria-live="polite">No reference images selected.</p>
+            </div>
+            <p class="privacy-note">Your name, contact information, message, and any images you attach will be emailed to The Gathered Wildflower and used only to review your request and respond about your custom order. Please do not include payment information in this form.</p>
+            <div class="form-actions">
+              <button class="submit-order" type="submit">Send My Custom Request</button>
+              <p class="form-fine-print"><span class="required">*</span> Required fields</p>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer>THE GATHERED WILDFLOWER &nbsp;·&nbsp; KEEPSAKES, MADE PERSONAL</footer>
+  </div></div>
+  <script src="site.js" defer></script>
+</body>
+</html>
