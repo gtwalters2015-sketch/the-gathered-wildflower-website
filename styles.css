@@ -104,6 +104,36 @@ footer { position:relative; z-index:2; width:88%; margin:0 auto 40px; padding:20
 .choice-card strong { display:block; margin:24px 0 17px; color:var(--pink-light); font:400 clamp(30px,3.6vw,44px)/1 'Segoe Script','Brush Script MT',cursive; }
 .choice-card small { color:#fff0e8; font-size:15px; }
 .choice-card:hover,.catalog-card:hover { transform:translateY(-3px); border-color:var(--pink-light); }
+.coming-soon { width:min(1080px,calc(100% - 72px)); margin:-24px auto 86px; padding:9px; border:1px solid rgba(255,126,174,.62); background:rgba(8,4,6,.92); box-shadow:0 18px 42px rgba(0,0,0,.56),0 0 34px rgba(236,63,130,.12); }
+.coming-soon-inner { position:relative; overflow:hidden; padding:52px clamp(22px,7vw,82px) 56px; border:1px solid rgba(255,174,203,.2); background:radial-gradient(circle at 50% 0,rgba(137,30,72,.34),transparent 54%),linear-gradient(145deg,rgba(18,8,12,.98),rgba(48,12,29,.93)); text-align:center; }
+.coming-soon-inner:before,.coming-soon-inner:after { content:'✦'; position:absolute; top:50%; color:rgba(255,126,174,.2); font-size:86px; transform:translateY(-50%) rotate(18deg); }
+.coming-soon-inner:before { left:-16px; }
+.coming-soon-inner:after { right:-16px; transform:translateY(-50%) rotate(-18deg); }
+.coming-soon-kicker { margin:0 0 14px; color:var(--gold); font-size:11px; letter-spacing:.25em; text-transform:uppercase; }
+.coming-soon h2 { margin:0; color:var(--pink-light); font:400 clamp(48px,7vw,78px)/1 'Segoe Script','Brush Script MT',cursive; text-shadow:0 2px 0 #501329,0 0 22px rgba(246,77,145,.18); }
+.coming-soon-copy { max-width:670px; margin:24px auto 0; color:#fff0e8; font-size:18px; line-height:1.7; }
+.coming-soon-products { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; padding:28px 18px 22px; }
+.coming-card { position:relative; display:flex; flex-direction:column; min-width:0; overflow:hidden; border:1px solid rgba(255,126,174,.5); background:rgba(16,7,11,.96); box-shadow:0 13px 30px rgba(0,0,0,.48); }
+.coming-card-wide { grid-column:1/-1; display:grid; grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr); }
+.coming-media { display:grid; min-height:280px; overflow:hidden; background:#160b10; }
+.coming-media>img { display:block; width:100%; height:100%; min-height:0; object-fit:cover; aspect-ratio:4/3; }
+.coming-media-tall>img { max-height:610px; object-position:center 42%; }
+.coming-media-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:3px; }
+.coming-media-grid>img { aspect-ratio:1/1; }
+.coming-media-three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.coming-media-five { grid-template-columns:repeat(6,minmax(0,1fr)); }
+.coming-media-five>img:first-child,.coming-media-five>img:nth-child(2) { grid-column:span 3; }
+.coming-media-five>img:nth-child(n+3) { grid-column:span 2; }
+.coming-card-copy { display:flex; flex:1; flex-direction:column; align-items:flex-start; padding:24px; }
+.coming-card-type { margin:0 0 9px; color:var(--pink-light); font-size:10px; letter-spacing:.17em; text-transform:uppercase; }
+.coming-card h3,.coming-pricing h3 { margin:0; color:#fff0e8; font-size:clamp(23px,3vw,32px); line-height:1.2; font-weight:400; }
+.coming-card-copy>p:not(.coming-card-type) { margin:14px 0 20px; color:#e4cbd2; font-size:15px; line-height:1.62; }
+.coming-inquiry { margin-top:auto; padding-bottom:4px; border-bottom:1px solid var(--pink); color:#ffd2df; text-decoration:none; font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
+.coming-inquiry:hover { color:#fff; }
+.coming-pricing { margin:6px 18px 18px; padding:38px clamp(22px,6vw,68px); border:1px solid rgba(255,160,194,.5); background:radial-gradient(circle at 50% 0,rgba(148,31,77,.38),transparent 62%),#12080d; text-align:center; }
+.coming-pricing .coming-card-type { margin-bottom:12px; }
+.coming-pricing>p:not(.coming-card-type) { max-width:720px; margin:17px auto 24px; color:#f5dce2; font-size:16px; line-height:1.7; }
+.coming-reference-note { margin:0 22px 25px; color:#cdaeb7; font-size:12px; line-height:1.6; text-align:center; }
 .catalog-page { position:relative; z-index:2; width:min(1100px,calc(100% - 56px)); margin:48px auto 80px; }
 .catalog-intro { margin-bottom:34px; padding:40px clamp(20px,5vw,58px); border:1px solid rgba(255,126,174,.5); background:var(--panel); box-shadow:0 16px 40px rgba(0,0,0,.5); text-align:center; }
 .catalog-intro h1 { margin:0 0 18px; color:var(--pink-light); font:400 clamp(42px,6vw,72px)/1 'Segoe Script','Brush Script MT',cursive; text-shadow:0 2px 0 #501329; }
@@ -160,6 +190,8 @@ footer { position:relative; z-index:2; width:88%; margin:0 auto 40px; padding:20
   .catalog-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .product-detail { grid-template-columns:1fr; }
   .home-choices { grid-template-columns:1fr; }
+  .coming-soon { margin-top:-10px; }
+  .coming-card-wide { display:flex; grid-column:auto; }
 }
 @media(max-width:680px) {
   .page { padding:0 7px 16px; }
@@ -195,8 +227,21 @@ footer { position:relative; z-index:2; width:88%; margin:0 auto 40px; padding:20
   .thank-you-panel { padding:52px 20px; }
   footer { width:94%; padding-block:24px; font-size:16px; line-height:1.35; }
   .home-actions { flex-direction:column; }
-  .home-choices,.catalog-page,.product-page { width:calc(100% - 28px); }
+  .home-choices,.coming-soon,.catalog-page,.product-page { width:calc(100% - 28px); }
   .home-choices { margin-bottom:48px; }
+  .coming-soon { margin-bottom:52px; padding:6px; }
+  .coming-soon-inner { padding:40px 17px 44px; }
+  .coming-soon-copy { font-size:16px; }
+  .coming-soon-inner:before,.coming-soon-inner:after { display:none; }
+  .coming-soon-products { grid-template-columns:1fr; gap:18px; padding:20px 8px 16px; }
+  .coming-media { min-height:220px; }
+  .coming-media-three { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .coming-media-three>img:first-child { grid-column:1/-1; }
+  .coming-media-five { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .coming-media-five>img,.coming-media-five>img:first-child,.coming-media-five>img:nth-child(2),.coming-media-five>img:nth-child(n+3) { grid-column:auto; }
+  .coming-media-five>img:first-child { grid-column:1/-1; }
+  .coming-card-copy { padding:21px 18px 23px; }
+  .coming-pricing { margin:4px 8px 14px; padding:32px 18px; }
   .catalog-intro { padding:34px 17px; }
   .catalog-grid { grid-template-columns:1fr; gap:20px; }
   .product-detail { padding:24px 17px; gap:30px; }
