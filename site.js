@@ -21,6 +21,17 @@ const palettes = {
 };
 
 const productTypes = ['T-shirt', 'Hoodie', 'Long-sleeve T-shirt', 'Sweatshirt'];
+const apparelSizes = ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL'];
+const productPricing = {
+  'T-shirt': { standard: 25, extended: 27 },
+  'Hoodie': { standard: 35, extended: 40 },
+  'Long-sleeve T-shirt': { standard: 25, extended: 28 },
+  'Sweatshirt': { standard: 30, extended: 35 }
+};
+const priceFor = (productType, size) => {
+  const tier = ['2XL', '3XL', '4XL'].includes(size) ? 'extended' : 'standard';
+  return productPricing[productType][tier];
+};
 const product = (id, name, image, category, palette = 'bold') => ({ id, name, image: `${image}.jpg`, category, colors: palettes[palette] });
 
 const designs = [
@@ -101,7 +112,7 @@ const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (char) => ({ '&'
 function designCard(item) {
   return `<article class="catalog-card">
     <div class="catalog-card-image"><img src="${item.image}" alt="${escapeHtml(item.name)} design" loading="lazy"></div>
-    <div class="catalog-card-body"><p class="catalog-card-category">${escapeHtml(item.category)}</p><h2>${escapeHtml(item.name)}</h2><p class="catalog-card-meta">Choose garment style and available colors</p></div>
+    <div class="catalog-card-body"><p class="catalog-card-category">${escapeHtml(item.category)}</p><h2>${escapeHtml(item.name)}</h2><p class="catalog-card-meta">Apparel from $25 · Choose garment, size, and color</p></div>
     <a class="catalog-card-link" href="design.html?id=${encodeURIComponent(item.id)}"><span class="sr-only">View ${escapeHtml(item.name)}</span></a>
   </article>`;
 }
@@ -158,19 +169,27 @@ function renderProduct() {
     </div>
     <div class="product-info">
       <p class="eyebrow">${escapeHtml(item.category)}</p><h1>${escapeHtml(item.name)}</h1>
-      <p class="product-description">Choose the product and color you would like. Only colors that complement this artwork are shown.</p>
+      <p class="product-description">Choose the garment, size, and color you would like. Only colors that complement this artwork are shown.</p>
       <div class="product-field"><label for="product-type">Product</label><select id="product-type">${productTypes.map((type) => `<option>${type}</option>`).join('')}</select></div>
+      <div class="product-field"><label for="product-size">Size</label><select id="product-size">${apparelSizes.map((size) => `<option>${size}</option>`).join('')}</select></div>
       <fieldset class="product-field color-fieldset"><legend>Color</legend><div class="color-swatches">${item.colors.map((key, index) => `<button class="color-swatch" type="button" data-color="${key}" style="background:${colorOptions[key].hex}" aria-label="${colorOptions[key].name}" aria-pressed="${index === 0}"></button>`).join('')}</div><p class="selected-color">Selected: <strong id="selected-color">${colorOptions[firstColor].name}</strong></p></fieldset>
-      <p class="product-note">The visualizer is a color guide. Screen settings and garment availability can affect the exact shade. Final product details and pricing will be confirmed before materials are purchased.</p>
+      <div class="product-price" aria-live="polite"><span>Your selected price</span><strong id="product-price">$25</strong><small id="price-note">T-shirt · Size S</small></div>
+      <p class="product-note">The visualizer is a color guide. Screen settings and garment availability can affect the exact shade. Product availability and final details will be confirmed before materials are purchased.</p>
       <a class="order-design" id="order-design" href="#">Request This Design</a>
     </div>`;
   const preview = document.getElementById('garment-preview');
   const selectedLabel = document.getElementById('selected-color');
   const productSelect = document.getElementById('product-type');
+  const sizeSelect = document.getElementById('product-size');
+  const priceLabel = document.getElementById('product-price');
+  const priceNote = document.getElementById('price-note');
   const orderLink = document.getElementById('order-design');
   let selectedKey = firstColor;
   const updateOrderLink = () => {
-    const params = new URLSearchParams({ design: item.name, product: productSelect.value, color: colorOptions[selectedKey].name });
+    const price = priceFor(productSelect.value, sizeSelect.value);
+    priceLabel.textContent = `$${price}`;
+    priceNote.textContent = `${productSelect.value} · Size ${sizeSelect.value}`;
+    const params = new URLSearchParams({ design: item.name, product: productSelect.value, size: sizeSelect.value, color: colorOptions[selectedKey].name, price: `$${price}` });
     orderLink.href = `custom-orders.html?${params}`;
   };
   host.querySelectorAll('.color-swatch').forEach((button) => button.addEventListener('click', () => {
@@ -181,6 +200,7 @@ function renderProduct() {
     updateOrderLink();
   }));
   productSelect.addEventListener('change', updateOrderLink);
+  sizeSelect.addEventListener('change', updateOrderLink);
   updateOrderLink();
 }
 
@@ -191,8 +211,12 @@ function prepareCustomOrder() {
   const design = params.get('design');
   if (!design) return;
   const productChoice = params.get('product') || 'Not selected';
+  const size = params.get('size');
   const color = params.get('color') || 'Not selected';
-  details.value = `I’m interested in this available design:\n\nDesign: ${design}\nProduct: ${productChoice}\nColor: ${color}\n\nSize, quantity, deadline, and additional details:\n`;
+  const price = params.get('price');
+  const sizeLine = size ? `\nSize: ${size}` : '';
+  const priceLine = price ? `\nListed price: ${price}` : '';
+  details.value = `I’m interested in this available design:\n\nDesign: ${design}\nProduct: ${productChoice}${sizeLine}\nColor: ${color}${priceLine}\n\nQuantity, deadline, and additional details:\n`;
 }
 
 const orderImages = document.getElementById('order-images');

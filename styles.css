@@ -109,6 +109,8 @@ footer { position:relative; z-index:2; width:88%; margin:0 auto 40px; padding:20
 .catalog-intro h1 { margin:0 0 18px; color:var(--pink-light); font:400 clamp(42px,6vw,72px)/1 'Segoe Script','Brush Script MT',cursive; text-shadow:0 2px 0 #501329; }
 .catalog-intro>p:last-of-type { max-width:760px; margin:0 auto; color:#fae7df; font-size:17px; line-height:1.65; }
 .catalog-search { display:block; width:min(520px,100%); margin:28px auto 0; text-align:left; }
+.pricing-strip { display:flex; flex-wrap:wrap; justify-content:center; gap:9px; margin:25px auto 0; }
+.pricing-strip span { padding:7px 11px; border:1px solid rgba(255,133,178,.42); background:rgba(53,13,30,.68); color:#ffe9e1; font-size:12px; }
 .catalog-search span { display:block; margin:0 0 7px; color:#ffd7e3; font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
 .catalog-search input { width:100%; min-height:48px; padding:11px 14px; border:1px solid rgba(255,133,178,.55); background:rgba(7,4,6,.86); color:#fff3ea; font:16px Georgia,'Times New Roman',serif; }
 .catalog-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
@@ -149,6 +151,10 @@ footer { position:relative; z-index:2; width:88%; margin:0 auto 40px; padding:20
 .color-swatch { width:42px; height:42px; padding:0; border:3px solid #14090d; outline:1px solid rgba(255,255,255,.38); border-radius:50%; cursor:pointer; box-shadow:0 3px 10px rgba(0,0,0,.35); }
 .color-swatch[aria-pressed='true'] { outline:3px solid var(--pink-light); outline-offset:2px; }
 .selected-color { margin:12px 0 0; color:#f4dce3; font-size:14px; }
+.product-price { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 14px; margin:4px 0 22px; padding:17px 18px; border:1px solid rgba(255,133,178,.5); background:rgba(48,11,28,.72); }
+.product-price span { flex:1 1 100%; color:#ffd7e3; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+.product-price strong { color:var(--pink-light); font-size:34px; line-height:1; }
+.product-price small { color:#f2dce2; font-size:14px; }
 .product-note { margin:18px 0; padding:14px 16px; border-left:3px solid var(--pink); background:rgba(68,15,37,.5); color:#e9ced6; font-size:13px; line-height:1.6; }
 .order-design { width:100%; }
 .missing-design { padding:70px 30px; text-align:center; }
