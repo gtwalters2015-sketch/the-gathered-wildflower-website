@@ -164,8 +164,6 @@ function renderProduct() {
   const firstColor = item.colors[0];
   host.innerHTML = `<div class="product-gallery">
       <img class="original-design" src="${item.image}" alt="${escapeHtml(item.name)} original design mockup">
-      <p class="preview-label">Interactive garment color preview</p>
-      <div class="garment-preview" id="garment-preview" style="--garment-color:${colorOptions[firstColor].hex}"><img class="garment-art" src="${item.image}" alt="" aria-hidden="true"></div>
     </div>
     <div class="product-info">
       <p class="eyebrow">${escapeHtml(item.category)}</p><h1>${escapeHtml(item.name)}</h1>
@@ -174,10 +172,9 @@ function renderProduct() {
       <div class="product-field"><label for="product-size">Size</label><select id="product-size">${apparelSizes.map((size) => `<option>${size}</option>`).join('')}</select></div>
       <fieldset class="product-field color-fieldset"><legend>Color</legend><div class="color-swatches">${item.colors.map((key, index) => `<button class="color-swatch" type="button" data-color="${key}" style="background:${colorOptions[key].hex}" aria-label="${colorOptions[key].name}" aria-pressed="${index === 0}"></button>`).join('')}</div><p class="selected-color">Selected: <strong id="selected-color">${colorOptions[firstColor].name}</strong></p></fieldset>
       <div class="product-price" aria-live="polite"><span>Your selected price</span><strong id="product-price">$25</strong><small id="price-note">T-shirt · Size S</small></div>
-      <p class="product-note">The visualizer is a color guide. Screen settings and garment availability can affect the exact shade. Product availability and final details will be confirmed before materials are purchased.</p>
+      <p class="product-note">Color swatches are a guide. Screen settings and garment availability can affect the exact shade. Product availability and final details will be confirmed before materials are purchased.</p>
       <a class="order-design" id="order-design" href="#">Request This Design</a>
     </div>`;
-  const preview = document.getElementById('garment-preview');
   const selectedLabel = document.getElementById('selected-color');
   const productSelect = document.getElementById('product-type');
   const sizeSelect = document.getElementById('product-size');
@@ -195,7 +192,6 @@ function renderProduct() {
   host.querySelectorAll('.color-swatch').forEach((button) => button.addEventListener('click', () => {
     selectedKey = button.dataset.color;
     host.querySelectorAll('.color-swatch').forEach((swatch) => swatch.setAttribute('aria-pressed', String(swatch === button)));
-    preview.style.setProperty('--garment-color', colorOptions[selectedKey].hex);
     selectedLabel.textContent = colorOptions[selectedKey].name;
     updateOrderLink();
   }));
